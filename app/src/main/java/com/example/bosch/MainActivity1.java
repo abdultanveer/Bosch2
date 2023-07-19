@@ -21,6 +21,7 @@ public class MainActivity1 extends AppCompatActivity {
     public void clickHandler(View view) {
         Toast.makeText(this, "welcome to android", Toast.LENGTH_SHORT).show();
         Intent homeIntent = new Intent(this, HomeActivity.class);
+        homeIntent.putExtra("makey","android bosch automotive");
         startActivity(homeIntent);
     }
 }
