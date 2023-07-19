@@ -1,6 +1,7 @@
 package com.example.bosch;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -19,5 +20,7 @@ public class MainActivity1 extends AppCompatActivity {
 
     public void clickHandler(View view) {
         Toast.makeText(this, "welcome to android", Toast.LENGTH_SHORT).show();
+        Intent homeIntent = new Intent(this, HomeActivity.class);
+        startActivity(homeIntent);
     }
 }
