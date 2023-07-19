@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Bosch</string>
+    <string name="cancel">cancel</string>
+    <string name="login">login</string>
+    <string name="enter_name">enter your name</string>
+    <string name="enter_paswd">enter password</string>
 </resources>
