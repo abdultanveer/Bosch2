@@ -50,4 +50,25 @@
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="@+id/etPaswd" />
+
+    <Button
+        android:id="@+id/btnDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:onClick="clickHandler"
+        android:text="dial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="30dp"
+        android:text="result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDial" />
 </androidx.constraintlayout.widget.ConstraintLayout>
