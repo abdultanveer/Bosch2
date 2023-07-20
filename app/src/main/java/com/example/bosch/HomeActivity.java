@@ -1,10 +1,13 @@
 package com.example.bosch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +41,16 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.e(TAG,"im in onstart-- user interacting");
+       int c = add(10,20);
+    }
 
+    private int add(int i, int i1) {
+        for(int k=0; k< 10; k++) {
+            int d = i * 20;
+            int j = i1 * 33;
+        }
+
+        return i + i1;
     }
 
     @Override
@@ -87,6 +99,15 @@ public class HomeActivity extends AppCompatActivity {
         pIntent.putExtra("phnum",phno);
         setResult(RESULT_OK,pIntent);
         //finish this activity
-        finish();
+        add(10,20);
+       // finish();
+        throw new NullPointerException("crash demo");
+
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString("phno","234567");
     }
 }
