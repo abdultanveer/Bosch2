@@ -3,6 +3,13 @@ package com.example.bosch;
 import junit.framework.TestCase;
 
 public class CalculatorTest extends TestCase {
+    Calculator calculator;
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+         calculator = new Calculator();
+
+    }
 
     public void testAdd() {
         int expected = 40;
@@ -11,9 +18,13 @@ public class CalculatorTest extends TestCase {
     }
 
     public void testMultiply(){
-        Calculator calculator = new Calculator();
         int expected = 20;
         int actual = calculator.multiply(5,4);
         assertEquals(expected,actual);
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
     }
 }
