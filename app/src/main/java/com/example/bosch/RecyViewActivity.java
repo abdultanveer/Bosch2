@@ -8,17 +8,28 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 public class RecyViewActivity extends AppCompatActivity {
-
-    String[] countries = {"India","usa", "uk","france"};
+    RecyclerView countriesRecyclerView;
+    String[] countries = {"India","usa", "uk","france",
+            "India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france",
+            "India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france",
+            "India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france",
+            "India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france",
+            "India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france",
+            "India","usa", "uk","france","India","usa", "uk","france","India","usa", "uk","france",};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recy_view);
-        RecyclerView countriesRecyclerView = findViewById(R.id.countrylistview);
+        countriesRecyclerView = findViewById(R.id.countrylistview);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         CountriesAdapter adapter = new CountriesAdapter(countries);
 
         countriesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         countriesRecyclerView.setAdapter(adapter);
-
     }
 }

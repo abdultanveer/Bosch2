@@ -9,9 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
-public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.CViewHolder> {
+public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.CountriesVHolder> {
     public static String TAG = CountriesAdapter.class.getSimpleName();
     String[] mCountries;
     public CountriesAdapter(String[] countries) {
@@ -20,15 +18,15 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.CVie
 
     @NonNull
     @Override
-    public CViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CountriesVHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.i(TAG,"arvind bought a row plank from market and reserving in the holder");
         View rowPlank = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout,parent,false);
-        return new CViewHolder(rowPlank);
+        return new CountriesVHolder(rowPlank);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CViewHolder holder, int position) {
-        Log.i(TAG,"keerthana is writing -- "+mCountries[position]);
+    public void onBindViewHolder(@NonNull CountriesVHolder holder, int position) {
+        Log.i(TAG,"keerthana is writing -- "+mCountries[position]+"-position is"+position);
         holder.rowTextView.setText(mCountries[position]);
 
     }
@@ -40,9 +38,9 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.CVie
         return mCountries.length;
     }
 
-    class CViewHolder extends RecyclerView.ViewHolder{
+    class CountriesVHolder extends RecyclerView.ViewHolder{
     TextView rowTextView;
-        public CViewHolder(@NonNull View itemView) {
+        public CountriesVHolder(@NonNull View itemView) {
             super(itemView);
             Log.i(TAG,"varsha received row plank");
 
