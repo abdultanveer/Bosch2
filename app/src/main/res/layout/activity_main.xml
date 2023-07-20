@@ -63,6 +63,8 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
 
     <TextView
+        android:textColor="@android:color/holo_orange_light"
+        style="@style/other_style"
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
