@@ -94,14 +94,15 @@ public class HomeActivity extends AppCompatActivity {
     public void handleContact(View view) {
         //get the data from edittext
         String phno = conEditText.getText().toString();
+        conTextView.setText(phno);
         //put the data into an intent
-        Intent pIntent = new Intent();
+       /* Intent pIntent = new Intent();
         pIntent.putExtra("phnum",phno);
         setResult(RESULT_OK,pIntent);
         //finish this activity
         add(10,20);
        // finish();
-        throw new NullPointerException("crash demo");
+        throw new NullPointerException("crash demo");*/
 
     }
 
