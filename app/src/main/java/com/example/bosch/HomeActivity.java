@@ -13,9 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity {
-
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
     public static String TAG = HomeActivity.class.getSimpleName();
     TextView conTextView;
     EditText conEditText;
@@ -27,6 +27,10 @@ public class HomeActivity extends AppCompatActivity {
       //  inflation();
         conTextView = findViewById(R.id.tvContact);  //taking handle on the textview
         conEditText = findViewById(R.id.etContact);
+        conEditText.setOnFocusChangeListener(this);
+        Button conButton = findViewById(R.id.btnContact);
+
+        conButton.setOnClickListener(this);
 
         //get the intent which started this activity
         //from that intent get the extras
@@ -109,5 +113,25 @@ public class HomeActivity extends AppCompatActivity {
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
         outState.putString("phno","234567");
+    }
+
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(this, "button was clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean isFocussed) {
+        if(isFocussed){
+            Log.i(TAG,"is focussed");
+            Toast.makeText(this, "view is focussed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Log.i(TAG,"lost focussed");
+
+            Toast.makeText(this, "view lost focussed", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }
