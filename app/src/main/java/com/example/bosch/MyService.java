@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.telephony.SmsManager;
 import android.util.Log;
 
 public class MyService extends Service {
@@ -21,7 +22,9 @@ public class MyService extends Service {
          String url = intent.getStringExtra("b2key");
         Log.i(TAG,"downloading from  "+url);
       //  stopSelf();
-        return START_STICKY;
+       /* SmsManager manager = SmsManager.getDefault();
+        manager.sendTextMessage("123456","765432","happy birthday",null,null);
+       */ return START_STICKY;
     }
 
     @Override
