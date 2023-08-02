@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
     public static String TAG = HomeActivity.class.getSimpleName();
+    BroadcastReceiver smsReceiver;
     TextView conTextView;
     EditText conEditText;
     @Override
@@ -46,7 +49,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onStart();
         Log.e(TAG,"im in onstart-- user interacting");
        int c = add(10,20);
+        smsReceiver = new SmsReceiver();
+       registerReceiver(smsReceiver, new IntentFilter("android.provider.Telephony.SMS_RECEIVED"));
     }
+
+
 
     private int add(int i, int i1) {
         for(int k=0; k< 10; k++) {
@@ -82,6 +89,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG,"im in ondestroy -- release resources");
+        unregisterReceiver(smsReceiver);
 
     }
 
@@ -132,6 +140,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "view lost focussed", Toast.LENGTH_SHORT).show();
 
         }
+
+    }
+
+    public void handleServices(View view) {
+        Intent serviceIntent = new Intent(this,MyService.class);
+        serviceIntent.putExtra("b2key","http://imageurl.com");
+        startService(serviceIntent);
+    }
+
+    public void stopService(View view) {
+        Intent serviceIntent = new Intent(this,MyService.class);
+        stopService(serviceIntent);
 
     }
 }

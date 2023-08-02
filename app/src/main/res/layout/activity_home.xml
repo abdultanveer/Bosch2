@@ -9,7 +9,6 @@
 
     <EditText
         android:id="@+id/etContact"
-        android:nextFocusDown="@id/btnContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -17,6 +16,7 @@
         android:ems="10"
         android:hint="enter your contact"
         android:inputType="text"
+        android:nextFocusDown="@id/btnContact"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,4 +49,25 @@
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/tvContact"
         app:layout_constraintTop_toBottomOf="@+id/tvContact" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:text="start"
+        android:onClick="handleServices"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnStop"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:onClick="stopService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="42dp"
+        android:text="stop"
+        app:layout_constraintStart_toEndOf="@+id/btnStart"
+        app:layout_constraintTop_toBottomOf="@+id/etTwo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
