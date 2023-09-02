@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.ContentVH> {
 Cursor mCursor;
 int colIndexBody ; //index of column name
+    int colIndexPhno;
     public ContentRVAdapter(Cursor cursor) {
         mCursor = cursor;
          colIndexBody = mCursor.getColumnIndexOrThrow("body"); //index of column name
+        colIndexPhno = mCursor.getColumnIndexOrThrow("address");
 
     }
 
@@ -29,6 +31,8 @@ int colIndexBody ; //index of column name
     public void onBindViewHolder(@NonNull ContentVH holder, int position) {
         mCursor.moveToPosition(position);
         holder.tvRowItem.setText(mCursor.getString(colIndexBody));
+        holder.phnoView.setText(mCursor.getString(colIndexPhno));
+
     }
 
     @Override
@@ -38,9 +42,11 @@ int colIndexBody ; //index of column name
 
     class  ContentVH extends RecyclerView.ViewHolder{
         TextView tvRowItem;
+        TextView phnoView;
         public ContentVH(@NonNull View itemView) {
             super(itemView);
             tvRowItem = itemView.findViewById(R.id.tvRowItem);
+            phnoView = itemView.findViewById(R.id.tvPhno);
         }
     }
 }
