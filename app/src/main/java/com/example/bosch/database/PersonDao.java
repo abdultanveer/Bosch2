@@ -1,5 +1,6 @@
 package com.example.bosch.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -13,7 +14,7 @@ public interface PersonDao {
     void insert(Person person);
 
     @Query("SELECT * from Person ORDER BY first_name ASC")
-    List<Person> getAllPersons();
+    LiveData<List<Person>> getAllPersons();
 
 }
 
