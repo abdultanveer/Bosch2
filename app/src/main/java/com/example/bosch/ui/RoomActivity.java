@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.bosch.Aquarium;
 import com.example.bosch.R;
 import com.example.bosch.database.Person;
 
@@ -19,6 +20,7 @@ RoomViewModel roomViewModel;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
+        Aquarium mAquarium = new Aquarium(getApplication(),getLifecycle());
         roomViewModel = new RoomViewModel(getApplication());
         nameEditText = findViewById(R.id.etName);
         dataView = findViewById(R.id.tvData);
