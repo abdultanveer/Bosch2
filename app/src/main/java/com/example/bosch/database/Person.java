@@ -9,10 +9,10 @@ import androidx.room.PrimaryKey;
 public class Person {
 
     @PrimaryKey(autoGenerate = true)
-    private int uid;
+    public int uid;
 
     @ColumnInfo(name = "first_name")
-    private String firstName;
+    public String firstName;
 
     @Ignore
     public Person(int uid, String firstName) {

@@ -8,10 +8,10 @@
 
     <Button
         android:id="@+id/btnPut"
-        android:onClick="putData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
+        android:onClick="putData"
         android:text="put"
         app:layout_constraintBottom_toBottomOf="@+id/btnGet"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,11 +19,11 @@
 
     <Button
         android:id="@+id/btnGet"
-        android:onClick="getData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="87dp"
         android:layout_marginEnd="68dp"
+        android:onClick="getData"
         android:text="get"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,4 +37,16 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPut" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:hint="enter name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnPut"
+        app:layout_constraintEnd_toStartOf="@+id/btnGet" />
 </androidx.constraintlayout.widget.ConstraintLayout>

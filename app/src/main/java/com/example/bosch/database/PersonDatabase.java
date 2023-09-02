@@ -15,14 +15,14 @@ public abstract class PersonDatabase extends RoomDatabase {
 
     private static PersonDatabase INSTANCE;
 
-    static PersonDatabase getDatabase(final Context context) {
+  public   static PersonDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (PersonDatabase.class) {
                 if (INSTANCE == null)    {
                     INSTANCE = Room.databaseBuilder(
                                     context.getApplicationContext(),
                                     PersonDatabase.class, "persons_database")
-                            .addCallback(sOnOpenCallback)
+                           // .addCallback(sOnOpenCallback)
                             .fallbackToDestructiveMigration()
                             .build();
                 }}}
@@ -31,17 +31,7 @@ public abstract class PersonDatabase extends RoomDatabase {
 
 
 
-    private static RoomDatabase.Callback sOnOpenCallback =
-            new RoomDatabase.Callback(){
-                @Override
-                public void onOpen (@NonNull SupportSQLiteDatabase db){
-                    super.onOpen(db);
-                    initializeData();
-                }};
 
-    private static void initializeData() {
-
-    }
 
 
 }
