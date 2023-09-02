@@ -100,6 +100,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Student myStudent = new Student("abdul",123,"abc",true);
         Log.i(TAG, "im in ondestroy -- release resources");
         unregisterReceiver(smsReceiver);
 
