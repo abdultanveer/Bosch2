@@ -25,7 +25,7 @@ public class PersonRepository {
 
 
     public LiveData<List<Person>> getAllWords() {
-        return null;
+        return personDao.getAllPersons();
     }
 
 

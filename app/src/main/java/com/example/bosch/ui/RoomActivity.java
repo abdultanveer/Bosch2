@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.bosch.R;
 import com.example.bosch.database.Person;
-import com.example.bosch.database.PersonDatabase;
 
 public class RoomActivity extends AppCompatActivity {
 //PersonDatabase personDatabase;
@@ -23,6 +22,9 @@ RoomViewModel roomViewModel;
         roomViewModel = new RoomViewModel(getApplication());
         nameEditText = findViewById(R.id.etName);
         dataView = findViewById(R.id.tvData);
+
+         roomViewModel.getAllPersons().observe(this,
+            listPersons -> dataView.setText(listPersons.get(0).firstName));
       //  personDatabase = PersonDatabase.getDatabase(this);
     }
 

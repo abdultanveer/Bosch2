@@ -23,7 +23,7 @@ public class RoomViewModel extends AndroidViewModel {
         mPeople = mRepository.getAllWords();
     }
 
-    LiveData<List<Person>> getAllWords() {
+    LiveData<List<Person>> getAllPersons() {
         return mPeople;
     }
     public void insert(Person word) {
