@@ -24,7 +24,8 @@ RoomViewModel roomViewModel;
         roomViewModel = new RoomViewModel(getApplication());
         nameEditText = findViewById(R.id.etName);
         dataView = findViewById(R.id.tvData);
-
+        // TODO: 02-09-2023 convert this to data binding 
+        // TODO: 02-09-2023 implement recyclerview with databinding
          roomViewModel.getAllPersons().observe(this,
             listPersons -> dataView.setText(listPersons.get(0).firstName));
       //  personDatabase = PersonDatabase.getDatabase(this);
@@ -60,5 +61,12 @@ RoomViewModel roomViewModel;
         }.start();
 
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //show a dialog
     }
 }
